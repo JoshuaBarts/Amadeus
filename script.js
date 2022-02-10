@@ -118,12 +118,10 @@ recognition.addEventListener('result', (e) => {
                 p.innerText = v3.line;
                 texts.appendChild(p);
             }
-            
             console.log(new Audio(v1.file))
 
             audio.autoplay = true;
             audio.play();
-
         }
         p = document.createElement('p');
     }
@@ -135,6 +133,11 @@ recognition.addEventListener('end', () => {
 })
 
 recognition.start();
+
+//normal kurisu
+function kurisuNormal() {
+    document.getElementById("img").src = "drawable-xhdpi/normal_kurisu_gif.gif";
+}
 
 //connect mouse
 function connect(x) {

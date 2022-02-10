@@ -16,9 +16,7 @@
             <source src="raw/ringtone_gate_of_steiner.ogg" type="audio/ogg">
           Your browser does not support the audio element.
         </audio>
-        <script>var aud = document.getElementById('audio');
-                aud.volume = 0.2;
-        </script>
+        
         <img id="index" src="drawable-xhdpi/index.gif">
 
         <form method="POST" onsubmit="return false">
@@ -36,7 +34,9 @@
         </form>
         <p id="err"></p>
     </section>
-
+    <script>var aud = document.getElementById('audio');
+        aud.volume = 0.2;
+    </script>
     <script src="script.js">
            
     </script>
