@@ -10,18 +10,26 @@
 </head>
 
 <body>
+    <script>alert('Remember.. this is Amadeus..')</script>
     <section>
+        <audio id="audio" controls autoplay loop style="display: none;">
+            <source src="raw/ringtone_gate_of_steiner.ogg" type="audio/ogg">
+          Your browser does not support the audio element.
+        </audio>
+        <script>var aud = document.getElementById('audio');
+                aud.volume = 0.2;
+        </script>
         <img id="index" src="drawable-xhdpi/index.gif">
 
         <form method="POST" onsubmit="return false">
             <div id="logon">
                 <div id="user1">
                     <label for="username">USER ID</label>
-                    <input type="text" id="user" name="userid"><br>
+                    <input type="text" id="user" name="userid" onkeydown="beep()"><br>
                 </div>
                 <div id="pass1">
                     <label for="password">PASSWORD </label>
-                    <input type="password" id="pass"  name="passid">
+                    <input type="password" id="pass"  name="passid" onkeydown="beep()">
                 </div>
                 <input id="enter" type="submit" onclick = 'test();'>
             </div>

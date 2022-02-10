@@ -8,9 +8,9 @@ let p = document.createElement('p');
 let img = document.querySelector('.img');
 
 //starting hello
-var audio = new Audio('raw/hello.ogg');
-audio.autoplay = true;
-audio.play();
+//var audio = new Audio('raw/hello.ogg');
+//audio.autoplay = true;
+//audio.play();
 
 recognition.addEventListener('result', (e) => {
     const text = Array.from(e.results)
@@ -184,4 +184,11 @@ function test() {
 function boot() {
     setTimeout(()=> {window.location = "main.html";}, 13000);
     
+}
+
+//beep
+function beep() {
+    var audio = new Audio('raw/beep.mp3');
+    //audio.loop = true;
+    audio.play();
 }
