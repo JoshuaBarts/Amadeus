@@ -11,6 +11,14 @@
 
 <body>
     <section>
+        <audio id="audio" controls autoplay loop style="display: none;">
+            <source src="raw/kurisubgm.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <script>
+            var aud = document.getElementById('audio');
+            aud.volume = 0.1;
+        </script>
         <h1>Amadeus<br><a  href="main.html"><img src="drawable-xhdpi/cancel_select.png"></a></h1>
         <p>Kurisu will respond if words include {hello, konnichiwa, Christina}</p>
         <img id="amad" src="drawable-xhdpi/logo32.png">

@@ -9,21 +9,10 @@
     <link rel="shortcut icon" href="#">
 </head>
 
-<body onload="intro()">
-    <script>
-        alert('Remember.. this is Amadeus..');
-
-        function intro() {
-            var audio = new Audio('raw/skyclad.mp3');
-            audio.volume = 0.2;
-            audio.loop = true;
-            audio.play();
-        }
-    </script>
-
-
+<body>
     <section>
         <img id="index" src="drawable-xhdpi/index.gif">
+        <p id="welcome"></p>
 
         <form method="POST" onsubmit="return false">
             <div id="logon">
@@ -40,7 +29,18 @@
         </form>
         <p id="err"></p>
     </section>
-   
+    <script>
+        alert('Remember.. this is Amadeus..');
+        function intro() {
+            var audio = new Audio('raw/skyclad.mp3');
+            audio.volume = 0.2;
+            audio.loop = true;
+            audio.play();
+        }
+        let name = prompt('Enter your name.');
+        document.getElementById('welcome').innerHTML = "Welcome, Tester " + name + "!";
+        intro();
+    </script>
     <script src="script.js">
            
     </script>

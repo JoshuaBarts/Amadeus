@@ -195,3 +195,11 @@ function beep() {
     //audio.loop = true;
     audio.play();
 }
+
+//skyclad
+function intro() {
+    var audio = new Audio('raw/skyclad.mp3');
+    audio.volume = 0.2;
+    audio.loop = true;
+    audio.play();
+}
