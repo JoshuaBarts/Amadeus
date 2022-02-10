@@ -157,3 +157,31 @@ function goHere() {
     window.location = 'start.html';
     
 }
+
+//login
+
+function test() {
+    var username = document.getElementById('user').value;
+    var password = document.getElementById('pass').value;
+
+    if (username == 'salieri' && password == 'elpsycongroo') {
+        alert("Success!");
+        window.location = "boot.html";
+    }
+    else {
+        var err = document.querySelector('#err');
+        var error = document.createElement('p');
+        error.innerText = "USER ID and PASSWORD doesn't match."
+        
+        err.appendChild(error).style.color = 'yellow';
+        
+        setTimeout(()=> {err.removeChild(error);}, 1000)
+        
+    }
+}
+
+//boot 
+function boot() {
+    setTimeout(()=> {window.location = "main.html";}, 13000);
+    
+}

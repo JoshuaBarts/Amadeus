@@ -89,3 +89,73 @@ img#img {
     bottom: 250px;
     opacity: 0.2;
 }
+
+#logon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
+
+input[type=text] {
+    width: 50%;
+    padding: 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid white;
+    background-color: black;
+    color: yellow;
+    margin-left: 40px;
+    font-size:24px;
+  }
+
+  input[type=password] {
+    width: 50%;
+    padding: 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid white;
+    background-color: black;
+    color: yellow;
+    font-size:24px;
+    
+  }
+
+  label {
+    text-shadow: 8px -4px 18px rgba(228,238,0,1);
+    color: yellow;
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+#index {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#enter {
+    width: 80px;
+    height: 80px;
+    left: 40%;
+    position: relative;
+    display: none;
+}
+
+#err {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#boot {
+      /* Full height */
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}

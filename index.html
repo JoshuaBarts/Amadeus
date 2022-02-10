@@ -11,19 +11,26 @@
 
 <body>
     <section>
-        <audio id="audio" controls autoplay loop style="display: none;">
-            <source src="raw/steiner.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-        <img id="logo" src='drawable-xhdpi/logo69.gif'>
-        <a onclick = 'setTimeout(goHere, 5000); return false;' class="connect" href="start.html"><img id="con-logo"  onclick="connect_clicked(this)" src="drawable-xhdpi/connect_unselect.png"></a>
-    </section>
-    <section>
-        <img id="nixie" src='drawable-xhdpi/nixie.gif'>
+        <img id="index" src="drawable-xhdpi/index.gif">
+
+        <form method="POST" onsubmit="return false">
+            <div id="logon">
+                <div id="user1">
+                    <label for="username">USER ID</label>
+                    <input type="text" id="user" name="userid"><br>
+                </div>
+                <div id="pass1">
+                    <label for="password">PASSWORD </label>
+                    <input type="password" id="pass"  name="passid">
+                </div>
+                <input id="enter" type="submit" onclick = 'test();'>
+            </div>
+        </form>
+        <p id="err"></p>
     </section>
 
     <script src="script.js">
-            alert("Remember.. this is Amadeus..");
+           
     </script>
 </body>
 </html>
