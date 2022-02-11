@@ -15,7 +15,7 @@
         <img id="index" src="drawable-xhdpi/index.gif">
         <p id="welcome"></p>
 
-        <a><img id="badge" src="drawable-xhdpi/badge.png"></a>
+        <a onclick="intro()"><img id="badge" src="drawable-xhdpi/badge.png"></a>
         <form id="form" method="POST" onsubmit="return false">
             <div id="logon">
                 <div id="user1">
@@ -44,7 +44,6 @@
             name = '';
         }
         document.getElementById('welcome').innerHTML = "Welcome, Tester " + name + "!";
-        intro();
     </script>
     <script src="script.js">
            
