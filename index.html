@@ -7,6 +7,7 @@
     <title>Amadeus</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="#">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -14,7 +15,8 @@
         <img id="index" src="drawable-xhdpi/index.gif">
         <p id="welcome"></p>
 
-        <form method="POST" onsubmit="return false">
+        <a><img id="badge" src="drawable-xhdpi/badge.png"></a>
+        <form id="form" method="POST" onsubmit="return false">
             <div id="logon">
                 <div id="user1">
                     <label for="username">USER ID</label>
@@ -38,6 +40,9 @@
             audio.play();
         }
         let name = prompt('Enter your name.');
+        if (name == '') {
+            name = '';
+        }
         document.getElementById('welcome').innerHTML = "Welcome, Tester " + name + "!";
         intro();
     </script>
