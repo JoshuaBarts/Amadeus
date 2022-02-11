@@ -11,6 +11,7 @@ $(document).ready(function() {
     $('#form').hide();
 
     $('#badge').click(function() {
+        beep();
         $('#badge').hide();
         $('#form').fadeIn();
     })
@@ -18,6 +19,7 @@ $(document).ready(function() {
     $('.texts').hide();
     $('#close').hide();
     $('#channel').click(function() {
+        beep();
         $('.texts').fadeIn('slow');
         $('#channel').hide();
         $('#close').show();
@@ -25,12 +27,14 @@ $(document).ready(function() {
     })
 
     $('#close').click(function() {
+        beep();
         $('.texts').hide();
         $('#close').hide();
         $('#channel').show();
     })
 
     $('#goodle').click(function() {
+        beep();
         window.open('goodle.html', '_blank');
     })
 
