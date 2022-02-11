@@ -8,17 +8,6 @@ $(document).ready(function() {
     let p = document.createElement('p');
     let img = document.querySelector('.img');
 
-    // get a new date (locale machine date time)
-    var date = new Date();
-    // get the date as a string
-    var n = date.toDateString();
-    // get the time as a string
-    var time = date.toLocaleTimeString();
-
-    // find the html element with the id of time
-    // set the innerHTML of that element to the date a space the time
-    document.getElementById('txt').innerHTML = n + ' ' + time;
-
     $('#form').hide();
 
     $('#badge').click(function() {
@@ -45,6 +34,8 @@ $(document).ready(function() {
         window.open('goodle.html', '_blank');
     })
 
+
+    date();
     recognition.addEventListener('result', (e) => {
         const text = Array.from(e.results)
             .map(result => result[0])
@@ -210,6 +201,18 @@ $(document).ready(function() {
 }); //end document
 
     //other functions
+    function date() {
+        // get a new date (locale machine date time)
+        var date = new Date();
+        // get the date as a string
+        var n = date.toDateString();
+        // get the time as a string
+        var time = date.toLocaleTimeString();
+
+        // find the html element with the id of time
+        // set the innerHTML of that element to the date a space the time
+        document.getElementById('txt').innerHTML = n + ' ' + time;
+    }
 
     //normal kurisu
     function kurisuNormal() {
