@@ -181,6 +181,7 @@ $(document).ready(function() {
                             p.innerText = v2.line;
                             texts.appendChild(p);
                         }
+                        kurisuNormal();
                         audio.autoplay = true;
                         audio.play();
                         break;
