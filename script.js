@@ -167,7 +167,7 @@ $(document).ready(function() {
                         audio = new Audio(voice[Math.floor(Math.random() * voice.length)].file);
                         x = audio.src;
                         if (new Audio(v1.file).src == x) {
-                            document.getElementById("img").src = "drawable-xhdpi/kurisu_normal1.png";
+                            kurisuNormal();
                             p = document.createElement('p');
                             p.classList.add('replay');
                             p.innerText = v1.line;
@@ -175,13 +175,13 @@ $(document).ready(function() {
                         }
         
                         if (new Audio(v2.file).src == x) {
-                            document.getElementById("img").src = "drawable-xhdpi/kurisu_normal1.png";
+                            kurisuNormal();
                             p = document.createElement('p');
                             p.classList.add('replay');
                             p.innerText = v2.line;
                             texts.appendChild(p);
                         }
-                        kurisuNormal();
+                        
                         audio.autoplay = true;
                         audio.play();
                         break;
