@@ -8,11 +8,41 @@ $(document).ready(function() {
     let p = document.createElement('p');
     let img = document.querySelector('.img');
 
+    // get a new date (locale machine date time)
+    var date = new Date();
+    // get the date as a string
+    var n = date.toDateString();
+    // get the time as a string
+    var time = date.toLocaleTimeString();
+
+    // find the html element with the id of time
+    // set the innerHTML of that element to the date a space the time
+    document.getElementById('txt').innerHTML = n + ' ' + time;
+
     $('#form').hide();
 
     $('#badge').click(function() {
         $('#badge').hide();
         $('#form').fadeIn();
+    })
+
+    $('.texts').hide();
+    $('#close').hide();
+    $('#channel').click(function() {
+        $('.texts').fadeIn('slow');
+        $('#channel').hide();
+        $('#close').show();
+
+    })
+
+    $('#close').click(function() {
+        $('.texts').hide();
+        $('#close').hide();
+        $('#channel').show();
+    })
+
+    $('#goodle').click(function() {
+        window.open('goodle.html', '_blank');
     })
 
     recognition.addEventListener('result', (e) => {
@@ -21,107 +51,151 @@ $(document).ready(function() {
             .map(result => result.transcript)
             .join('');
 
+            console.log(e);
             p.innerText = text;
             texts.appendChild(p);
+
 
         if (e.results[0].isFinal) {
 
             //main speeches
             var speech = ['hello', 'konnichiwa', 'Christina'];
+            var x = document.getElementById('txt').value;
+            
+            /*DEFAULT*/
+            switch (true) {
+                case text.includes('hello') :
+                case text.includes('hey') :
+                case text.includes('hi') :
+                                    var v1 = {
+                                        file: 'raw/nice_to_meet_okabe.ogg',
+                                        line: 'Nice to meet you, Okabe Rintaro. I am Makise Kurisu.'
+                                    }
+                            
+                                    var v2 = {
+                                        file: 'raw/could_i_help.ogg',
+                                        line: 'How can I help you?'
+                                    }
+                            
+                                    var v3 = {
+                                        file: 'raw/ask_me_whatever.ogg',
+                                        line: 'You can ask me whatever.'
+                                    }
+                                    var voice = [v1, v2, v3];
+                                    var audio = new Audio(voice[Math.floor(Math.random() * voice.length)].file);
+                                    var x = audio.src;
+                                    if (new Audio(v1.file).src == x) {
+                                        document.getElementById("img").src = "drawable-xhdpi/kurisu_normal1.png";
+                                        p = document.createElement('p');
+                                        p.classList.add('replay');
+                                        p.innerText = v1.line;
+                                        texts.appendChild(p);
+                                    }
+                                    if (new Audio(v2.file).src == x) {
+                                        document.getElementById("img").src = "drawable-xhdpi/kurisu_normal1.png";
+                                        p = document.createElement('p');
+                                        p.classList.add('replay');
+                                        p.innerText = v2.line;
+                                        texts.appendChild(p);
+                                    }
+                                    if (new Audio(v3.file).src == x) {
+                                        document.getElementById("img").src = "drawable-xhdpi/kurisu_angry2.png";
+                                        p = document.createElement('p');
+                                        p.classList.add('replay');
+                                        p.innerText = v3.line;
+                                        texts.appendChild(p);
+                                    }
+                                    
+                                    console.log(new Audio(v1.file))
 
+                                    audio.autoplay = true;
+                                    audio.play();
+                                    break;
 
-            if (text.includes(speech[0]) || text.includes(speech[1]) || text.includes('hi')) {
-
-                let v1 = {
-                    file: 'raw/nice_to_meet_okabe.ogg',
-                    line: 'Nice to meet you, Okabe Rintaro. I am Makise Kurisu.'
-                }
-        
-                let v2 = {
-                    file: 'raw/could_i_help.ogg',
-                    line: 'How can I help you?'
-                }
-        
-                let v3 = {
-                    file: 'raw/ask_me_whatever.ogg',
-                    line: 'You can ask me whatever.'
-                }
-                let voice = [v1, v2, v3];
-                var audio = new Audio(voice[Math.floor(Math.random() * voice.length)].file);
-                var x = audio.src;
-                if (new Audio(v1.file).src == x) {
-                    document.getElementById("img").src = "drawable-xhdpi/kurisu_normal1.png";
-                    p = document.createElement('p');
-                    p.classList.add('replay');
-                    p.innerText = v1.line;
-                    texts.appendChild(p);
-                }
-                if (new Audio(v2.file).src == x) {
-                    document.getElementById("img").src = "drawable-xhdpi/kurisu_normal1.png";
-                    p = document.createElement('p');
-                    p.classList.add('replay');
-                    p.innerText = v2.line;
-                    texts.appendChild(p);
-                }
-                if (new Audio(v3.file).src == x) {
-                    document.getElementById("img").src = "drawable-xhdpi/kurisu_angry2.png";
-                    p = document.createElement('p');
-                    p.classList.add('replay');
-                    p.innerText = v3.line;
-                    texts.appendChild(p);
-                }
+                case text.includes('hello Christina') :
+                case text.includes('christina') :
+                case text.includes('Christina') :
+                case text.includes('Tina') :
+                case text.includes('konnichiwa') :
+                                    v1 = {
+                                        file: "raw/christina.ogg",
+                                        line: "Christina?!"
+                                    }
+                                    v2 = {
+                                        file: "raw/dont_add_tina.ogg",
+                                        line: "Don't add -tina!"
+                                    }
+                    
+                                    v3 = {
+                                        file: "raw/dont_call_me_like_that.ogg",
+                                        line: "....Don't call me like that!!!"
+                                    }
+                    
+                                    voice = [v1, v2, v3];
+                                    document.getElementById("img").src = "drawable-xhdpi/kurisu_normal1.png";
+                                    audio = new Audio(voice[Math.floor(Math.random() * voice.length)].file);
+                                    x = audio.src;
+                                    if (new Audio(v1.file).src == x) {
+                                        document.getElementById("img").src = "drawable-xhdpi/kurisu_blush1.png";
+                                        p = document.createElement('p');
+                                        p.classList.add('replay');
+                                        p.innerText = v1.line;
+                                        texts.appendChild(p);
+                                    }
+                                    if (new Audio(v2.file).src == x) {
+                                        p = document.createElement('p');
+                                        p.classList.add('replay');
+                                        p.innerText = v2.line;
+                                        texts.appendChild(p);
+                                    }
+                                    if (new Audio(v3.file).src == x) {
+                                        document.getElementById("img").src = "drawable-xhdpi/kurisu_angry2.png";
+                                        p = document.createElement('p');
+                                        p.classList.add('replay');
+                                        p.innerText = v3.line;
+                                        texts.appendChild(p);
+                                    }
+                                    console.log(new Audio(v1.file))
+                    
+                                    audio.autoplay = true;
+                                    audio.play();
+                                    break;
                 
-                console.log(new Audio(v1.file))
+                    /********DEFFAAAAAAUUULLLLTTT */
+                    default:
+                        v1 = {
+                            file: 'raw/what_is_it.ogg',
+                            line: 'What is it?'
+                        }
+        
+                        v2 = {
+                            file: 'raw/sorry.ogg',
+                            line: 'Sorry. (Kurisu did not understand.)'
+                        }
+                        voice = [v1, v2];
+                        audio = new Audio(voice[Math.floor(Math.random() * voice.length)].file);
+                        x = audio.src;
+                        if (new Audio(v1.file).src == x) {
+                            document.getElementById("img").src = "drawable-xhdpi/kurisu_normal1.png";
+                            p = document.createElement('p');
+                            p.classList.add('replay');
+                            p.innerText = v1.line;
+                            texts.appendChild(p);
+                        }
+        
+                        if (new Audio(v2.file).src == x) {
+                            document.getElementById("img").src = "drawable-xhdpi/kurisu_normal1.png";
+                            p = document.createElement('p');
+                            p.classList.add('replay');
+                            p.innerText = v2.line;
+                            texts.appendChild(p);
+                        }
+                        audio.autoplay = true;
+                        audio.play();
+                        break;
+            
+            } //end switch
 
-                audio.autoplay = true;
-                audio.play();
-            }
-
-            if (text.includes(speech[2]) && !text.includes('hello') && !text.includes('hi')) {
-
-                let v1 = {
-                    file: "raw/christina.ogg",
-                    line: "Christina?!"
-                }
-                let v2 = {
-                    file: "raw/dont_add_tina.ogg",
-                    line: "Don't add -tina!"
-                }
-
-                let v3 = {
-                    file: "raw/dont_call_me_like_that.ogg",
-                    line: "....Don't call me like that!!!"
-                }
-
-                let voice = [v1, v2, v3];
-                document.getElementById("img").src = "drawable-xhdpi/kurisu_normal1.png";
-                var audio = new Audio(voice[Math.floor(Math.random() * voice.length)].file);
-                var x = audio.src;
-                if (new Audio(v1.file).src == x) {
-                    document.getElementById("img").src = "drawable-xhdpi/kurisu_blush1.png";
-                    p = document.createElement('p');
-                    p.classList.add('replay');
-                    p.innerText = v1.line;
-                    texts.appendChild(p);
-                }
-                if (new Audio(v2.file).src == x) {
-                    p = document.createElement('p');
-                    p.classList.add('replay');
-                    p.innerText = v2.line;
-                    texts.appendChild(p);
-                }
-                if (new Audio(v3.file).src == x) {
-                    document.getElementById("img").src = "drawable-xhdpi/kurisu_angry2.png";
-                    p = document.createElement('p');
-                    p.classList.add('replay');
-                    p.innerText = v3.line;
-                    texts.appendChild(p);
-                }
-                console.log(new Audio(v1.file))
-
-                audio.autoplay = true;
-                audio.play();
-            }
             p = document.createElement('p');
         }
         console.log(text);
