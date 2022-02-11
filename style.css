@@ -77,6 +77,8 @@ img#img {
     margin-right: auto;
     width: 50%;
     min-height: 40;
+    position: relative;
+    bottom: 60px;
 }
 
 #nixie {
