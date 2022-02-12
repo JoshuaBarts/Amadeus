@@ -53,7 +53,7 @@ section p {
 .texts p {
     color: white;
     text-align: left;
-    background-image: url('drawable-xhdpi/subtitle_frame_big.png');
+    background-image: url(drawable-xhdpi/subtitle_frame_big.png);
     border-radius: 8px;
     margin-bottom: 10px;
     padding: 10px;
@@ -61,6 +61,7 @@ section p {
     float: right;
     position: relative;
     left: 125%;
+    bottom: 615px;
    
 }
 .texts p.replay {
@@ -77,12 +78,12 @@ img#img {
 }
 
 #channel {
-    width: 25%;
-    height: 150px;
+    width: 12%;
+    height: 80px;
     position: relative;
-    left: 118%;
     cursor: pointer;
-    bottom: 147px;
+    bottom: 125px;
+    right: 63%;
 }
 
 #close {
@@ -223,9 +224,58 @@ input[type=text] {
 }
 
 #goodle {
-    width: 6%;
-    height: 140px;
+    width: 3%;
+    height: 79px;
     position: relative;
-    right: 8%;
+    right: 41%;
     cursor: pointer;
+    bottom: 38px;
+}
+
+#rine {
+    width: 3%;
+    height: 81px;
+    position: relative;
+    right: 34%;
+    cursor: pointer;
+    bottom: 40px;
+}
+
+ul {
+    position: absolute;
+    color: mediumspringgreen;
+    left: 13%;
+    top: 54%;
+    height: 286px;
+    background: url(drawable-xhdpi/phonebg.jpg);
+    background-size: cover;
+    text-align: left;
+    text-decoration: none;
+    list-style: none;
+    font-size: 23px;
+}
+
+#phone {
+    width: 18%;
+    position: relative;
+    right: 21%;
+    top: 108px;
+    cursor: pointer;
+}
+
+#settings {
+    width: 3%;
+    height: 77px;
+    position: relative;
+    right: 33%;
+    cursor: pointer;
+    bottom: 42px;
+}
+
+span {
+    margin: 10px;
+}
+
+.li {
+    background-color: black;
 }

@@ -5,6 +5,11 @@ $(document).ready(function() {
 
     const recognition = new window.SpeechRecognition();
     recognition.interimResults = true;
+    
+    
+    //hmmmm how to do multiple languages
+    //var lang = ['ja-JP', 'en-US'];
+    //recognition.lang = 'en-US, ja-JP';
     let p = document.createElement('p');
     let img = document.querySelector('.img');
 
@@ -20,10 +25,15 @@ $(document).ready(function() {
     $('#close').hide();
     $('#channel').click(function() {
         beep();
-        $('.texts').fadeIn('slow');
-        $('#channel').hide();
-        $('#close').show();
+        $('.texts').toggle();
+        //$('#channel').hide();
+        //$('#close').show();
 
+    })
+
+    $('#settings').click(function() {
+        beep();
+        $('#wordlist').hide();
     })
 
     $('#close').click(function() {
@@ -38,7 +48,14 @@ $(document).ready(function() {
         window.open('goodle.html', '_blank');
     })
 
+    $('#wordlist').hide();
 
+    $('#rine').click(function() {
+        $('#wordlist').toggle();
+        beep();
+    })
+
+    
     date();
     recognition.addEventListener('result', (e) => {
         const text = Array.from(e.results)
@@ -54,7 +71,6 @@ $(document).ready(function() {
         if (e.results[0].isFinal) {
 
             //main speeches
-            var speech = ['hello', 'konnichiwa', 'Christina'];
             var x = document.getElementById('txt').value;
             
             /*DEFAULT*/
@@ -62,6 +78,9 @@ $(document).ready(function() {
                 case text.includes('hello') :
                 case text.includes('hey') :
                 case text.includes('hi') :
+                case text.includes('good morning') :
+                case text.includes('good afternoon') :
+                case text.includes('good evening') :
                                     var v1 = {
                                         file: 'raw/nice_to_meet_okabe.ogg',
                                         line: 'Nice to meet you, Okabe Rintaro. I am Makise Kurisu.'
@@ -80,21 +99,25 @@ $(document).ready(function() {
                                     var audio = new Audio(voice[Math.floor(Math.random() * voice.length)].file);
                                     var x = audio.src;
                                     if (new Audio(v1.file).src == x) {
-                                        document.getElementById("img").src = "drawable-xhdpi/kurisu_normal1.png";
+                                        document.getElementById("img").src = "drawable-xhdpi/talk1-1.gif";
+                                        setTimeout(()=> {document.getElementById("img").src = "drawable-xhdpi/talk1.gif";}, 2500);
+                                        setTimeout(()=> {document.getElementById("img").src = "drawable-xhdpi/kurisu_happy1.png";}, 5000);
                                         p = document.createElement('p');
                                         p.classList.add('replay');
                                         p.innerText = v1.line;
                                         texts.appendChild(p);
                                     }
                                     if (new Audio(v2.file).src == x) {
-                                        document.getElementById("img").src = "drawable-xhdpi/kurisu_normal1.png";
+                                        document.getElementById("img").src = "drawable-xhdpi/talk2-1.gif";
+                                        setTimeout(()=> {document.getElementById("img").src = "drawable-xhdpi/talk2.gif";}, 1000);
                                         p = document.createElement('p');
                                         p.classList.add('replay');
                                         p.innerText = v2.line;
                                         texts.appendChild(p);
                                     }
                                     if (new Audio(v3.file).src == x) {
-                                        document.getElementById("img").src = "drawable-xhdpi/kurisu_angry2.png";
+                                        document.getElementById("img").src = "drawable-xhdpi/talk3-1.gif";
+                                        setTimeout(()=> {document.getElementById("img").src = "drawable-xhdpi/talk3-1.gif";}, 2000);
                                         p = document.createElement('p');
                                         p.classList.add('replay');
                                         p.innerText = v3.line;
@@ -102,7 +125,6 @@ $(document).ready(function() {
                                     }
                                     
                                     console.log(new Audio(v1.file))
-
                                     audio.autoplay = true;
                                     audio.play();
                                     break;
@@ -131,20 +153,24 @@ $(document).ready(function() {
                                     audio = new Audio(voice[Math.floor(Math.random() * voice.length)].file);
                                     x = audio.src;
                                     if (new Audio(v1.file).src == x) {
-                                        document.getElementById("img").src = "drawable-xhdpi/kurisu_blush1.png";
+                                        document.getElementById("img").src = "drawable-xhdpi/talk4.gif";
+                                        setTimeout(()=> {document.getElementById("img").src = "drawable-xhdpi/kurisu_blush1.png";}, 1000);
                                         p = document.createElement('p');
                                         p.classList.add('replay');
                                         p.innerText = v1.line;
                                         texts.appendChild(p);
                                     }
                                     if (new Audio(v2.file).src == x) {
+                                        document.getElementById("img").src = "drawable-xhdpi/talk6.gif";
+                                        setTimeout(()=> {document.getElementById("img").src = "drawable-xhdpi/kurisu_sided_eyes_closed1.png";}, 1000);
                                         p = document.createElement('p');
                                         p.classList.add('replay');
                                         p.innerText = v2.line;
                                         texts.appendChild(p);
                                     }
                                     if (new Audio(v3.file).src == x) {
-                                        document.getElementById("img").src = "drawable-xhdpi/kurisu_angry2.png";
+                                        document.getElementById("img").src = "drawable-xhdpi/talk5.gif";
+                                        
                                         p = document.createElement('p');
                                         p.classList.add('replay');
                                         p.innerText = v3.line;
@@ -155,23 +181,108 @@ $(document).ready(function() {
                                     audio.autoplay = true;
                                     audio.play();
                                     break;
+
+                case text.includes('f***') :
+                case text.includes('b****') :
+                case text.includes('motherfuker') :
+                                    v1 = {
+                                        file: "raw/sorry.ogg",
+                                        line: "Sorry."
+                                    }
+                                    v2 = {
+                                        file: "raw/huh_why_say.ogg",
+                                        line: "Eh? Why did you say that?"
+                                    }
+                                    var voice = [v1,v2];
+                                    var audio = new Audio(voice[Math.floor(Math.random() * voice.length)].file);
+                                    var x = audio.src;
+                                    if (new Audio(v1.file).src == x) {
+                                        document.getElementById("img").src = "drawable-xhdpi/talk7.gif";
+                                        p = document.createElement('p');
+                                        p.classList.add('replay');
+                                        p.innerText = v1.line;
+                                        texts.appendChild(p);
+                                    }
+                                    if (new Audio(v2.file).src == x) {
+                                        document.getElementById("img").src = "drawable-xhdpi/talk8.gif";
+                                        //setTimeout(()=> {document.getElementById("img").src = "drawable-xhdpi/talk8.gif";}, 2000)
+                                        p = document.createElement('p');
+                                        p.classList.add('replay');
+                                        p.innerText = v2.line;
+                                        texts.appendChild(p);
+                                    }
+                                    audio.autoplay = true;
+                                    audio.play();
+                                    break;
+                    
+                case text.includes('love') :
+                case text.includes('cute') :
+                case text.includes('panties') :
+                case text.includes('bra') :
+                case text.includes('kiss') :
+                case text.includes('Crush') :
+                case text.includes('crush') :
+                case text.includes('waifu') :
                 
+                                    v1 = {
+                                        file: "raw/devilish_pervert.ogg",
+                                        line: "I didn't notice you were a devilish pervert.. ahh I missed."
+                                    }
+                                    v2 = {
+                                        file: "raw/pervert_idot_wanttodie.ogg",
+                                        line: "Pervert!! Idiot. Do you want to die?"
+                                    }
+                                    v3 = {
+                                        file: "raw/pervert_confirmed.ogg",
+                                        line: "Pervert Confirmed."
+                                    }
+                                    var voice = [v1,v2,v3];
+                                    var audio = new Audio(voice[Math.floor(Math.random() * voice.length)].file);
+                                    var x = audio.src;
+                                    if (new Audio(v1.file).src == x) {
+                                        document.getElementById("img").src = "drawable-xhdpi/talk9-1.gif";
+                                        setTimeout(()=> {document.getElementById("img").src = "drawable-xhdpi/talk9-1.gif";}, 1000)
+                                        p = document.createElement('p');
+                                        p.classList.add('replay');
+                                        p.innerText = v1.line;
+                                        texts.appendChild(p);
+                                    }
+                                    if (new Audio(v2.file).src == x) {
+                                        document.getElementById("img").src = "drawable-xhdpi/talk9-1.gif";
+                                        setTimeout(()=> {document.getElementById("img").src = "drawable-xhdpi/talk9-1.gif";}, 1000)
+                                        p = document.createElement('p');
+                                        p.classList.add('replay');
+                                        p.innerText = v2.line;
+                                        texts.appendChild(p);
+                                    }
+                                    if (new Audio(v3.file).src == x) {
+                                        document.getElementById("img").src = "drawable-xhdpi/talk8.gif";
+                                        p = document.createElement('p');
+                                        p.classList.add('replay');
+                                        p.innerText = v3.line;
+                                        texts.appendChild(p);
+                                    }
+                                    audio.autoplay = true;
+                                    audio.play();
+                                    break;
+
                     /********DEFFAAAAAAUUULLLLTTT */
-                    default:
+                default:
+                        
                         v1 = {
                             file: 'raw/what_is_it.ogg',
                             line: 'What is it?'
                         }
         
                         v2 = {
-                            file: 'raw/sorry.ogg',
-                            line: 'Sorry. (Kurisu did not understand.)'
+                            file: 'raw/ok.ogg',
+                            line: 'umm..Ok?'
                         }
                         voice = [v1, v2];
                         audio = new Audio(voice[Math.floor(Math.random() * voice.length)].file);
                         x = audio.src;
                         if (new Audio(v1.file).src == x) {
-                            kurisuNormal();
+                            document.getElementById("img").src = "drawable-xhdpi/talk2-1.gif";
                             p = document.createElement('p');
                             p.classList.add('replay');
                             p.innerText = v1.line;
@@ -191,11 +302,13 @@ $(document).ready(function() {
                         break;
             
             } //end switch
-
+            
             p = document.createElement('p');
         }
+        
         console.log(text);
     })
+    
 
     recognition.addEventListener('end', () => {
         recognition.start();
